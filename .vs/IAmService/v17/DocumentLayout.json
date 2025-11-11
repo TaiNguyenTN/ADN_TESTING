@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "Application\\Services\\AuthService.cs",
               "ToolTip": "C:\\FullStack\\Project\\ADN_TESTING\\IAmService\\Application\\Services\\AuthService.cs",
               "RelativeToolTip": "Application\\Services\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-10T09:47:08.453Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T09:46:41.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-10T09:46:41.995Z"
             }
           ]
         }
