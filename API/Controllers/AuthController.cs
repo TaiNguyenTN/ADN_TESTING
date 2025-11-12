@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Domain.Aggregate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,12 +20,14 @@ namespace API.Controllers
             _authService = authService;
         }
 
-
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login([FromBody] LoginDTO loginDTO)
         {
             var authResponse = await _authService.Login(loginDTO);
             return Ok(authResponse);
         }
+
+
     }
 }

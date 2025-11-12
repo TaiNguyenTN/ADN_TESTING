@@ -15,3 +15,4 @@ C:\FullStack\Project\ADN_TESTING\IAmService\Infrastructure\obj\Debug\net9.0\refi
 C:\FullStack\Project\ADN_TESTING\IAmService\Infrastructure\obj\Debug\net9.0\Infrastructure.pdb
 C:\FullStack\Project\ADN_TESTING\IAmService\Infrastructure\obj\Debug\net9.0\Infrastructure.genruntimeconfig.cache
 C:\FullStack\Project\ADN_TESTING\IAmService\Infrastructure\obj\Debug\net9.0\ref\Infrastructure.dll
+C:\FullStack\Project\ADN_TESTING\IAmService\Infrastructure\obj\Debug\net9.0\Infrastructure.sourcelink.json

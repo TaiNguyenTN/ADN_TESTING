@@ -26,7 +26,7 @@ namespace Domain.Aggregate
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public Address? Address { get; private set; }
-        public bool IsActive { get; private set; }
+        public bool IsActive { get; private set; } = true;
         public RefreshToken? RefreshToken { get; private set; }
         public IReadOnlyCollection<UserRole> UserRoles
         {
@@ -106,5 +106,19 @@ namespace Domain.Aggregate
                 throw new InvalidUserAggregateException("Email format is invalid.");
         }
         #endregion
+
+        public void AddRole(Guid roleId)
+        {
+            var existingRole = userRoles.FirstOrDefault(ur => ur.RoleId ==  roleId);
+            if(existingRole != null)
+            {
+                if (!existingRole.IsActive)
+                    existingRole.Activate();
+            }
+            else
+            {
+                userRoles.Add(new UserRole(UserId, roleId, true));
+            }
+        }
     }
 }

@@ -82,6 +82,8 @@ namespace Infrastructure.Data
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(r => r.RoleId);
+
+                entity.Property(r => r.Code).IsRequired();
                 entity.Property(r => r.Name).IsRequired();
                 entity.Property(r => r.Description).IsRequired();
                 entity.HasMany(r => r.RolePrivileges)

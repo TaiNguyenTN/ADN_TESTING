@@ -33,6 +33,11 @@ namespace Domain.ValueObject
 
         }
 
+        public bool Verify(string plain)  //Hàm này có tác dụng để kiểm tra mật khẩu nhập vào có đúng với mật khẩu đã hash hay không
+        {
+            return BCrypt.Net.BCrypt.Verify(plain, Hashed);
+        }
+
 
     }
 }

@@ -18,6 +18,7 @@ namespace Domain.Aggregate
         #region Properties
         public Guid RoleId { get; private set; } = new Guid();
         public string Name { get; private set; }
+        public string Code { get; set; }
         public string Description { get; private set; }
         public IReadOnlyCollection<UserRole> UserRoles
         {
@@ -31,12 +32,14 @@ namespace Domain.Aggregate
 
         private Role() { }
 
-        public Role(string name, string description)
+        public Role(string name, string code, string description)
         {
             ValidateName(name);
             Name = name;
             ValidateDescription(description);
             Description = description;
+            ValidateCode(code);
+            Code = code;
         }
 
         #region Methods
@@ -85,6 +88,13 @@ namespace Domain.Aggregate
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new InvalidRoleAggregateException("Role name cannot be empty.");
+        }
+
+        private static void ValidateCode(string code)
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                throw new InvalidRoleAggregateException(
+                    "Role code cannot be empty.");
         }
 
         private static void ValidateDescription(string description)
