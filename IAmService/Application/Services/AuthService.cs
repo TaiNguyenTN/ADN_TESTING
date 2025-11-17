@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Application.ApplicationExceptions;
@@ -16,12 +17,29 @@ namespace Application.Services
     {
         #region Attributes
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ITokenService tokenService;
+        private readonly IEmailService emailService;
         #endregion
 
-        public AuthService(IUnitOfWork unitOfWork)
+        public AuthService(IUnitOfWork unitOfWork, ITokenService tokenService, IEmailService emailService)
         {
             _unitOfWork = unitOfWork;
+            this.tokenService = tokenService;
+            this.emailService = emailService;
         }
+
+        public async Task ForgotPasswordAsync(ForgotPasswordDTO dto)
+        {
+            var user = await _unitOfWork.GetRepository<IUserRepository>().GetByEmailAsync(dto.Email);
+            if (user == null)
+                throw new UserEmailNotFound(dto.Email);
+            var token = tokenService.GeneratePasswordResetToken(user);
+            var client = Environment.GetEnvironmentVariable("CLIENT_SIDE");
+            var resetLink = $"{client}/reset-password?token={token}";
+            await emailService.SendPasswordResetEmailAsync(dto.Email, resetLink);
+
+        }
+
         public async Task<TokenDTO> Login(LoginDTO dto)
         {
             // Get repository
@@ -33,9 +51,9 @@ namespace Application.Services
             //Get User
             var user = await userRepo.GetByUsernameAsync(dto.UserName);
             if (user == null)
-                throw new UserNotFoundException("User not found");
+                throw new UserNotFoundException();
             if (!user.IsActive)
-                throw new UserNotFoundException("User not found");
+                throw new UserNotFoundException();
 
             // Verify Password
             if (!user.Password.Verify(dto.Password))
@@ -84,7 +102,7 @@ namespace Application.Services
                 .GetByEmailAsync(dto.Email);
 
             if(user == null) 
-                throw new UserNotFoundException("User not found");
+                throw new UserNotFoundException();
 
             //Verify refresh token
             var refreshToken = await _unitOfWork.GetRepository<IRefreshTokenRepository>()
@@ -97,6 +115,31 @@ namespace Application.Services
             var accessToken = JwtHelper.GenerateToken(user);
 
             return accessToken;
+        }
+
+        public async Task ResetPasswordAsync(ResetPasswordDTO dto)
+        {
+            if (dto.NewPassword != dto.ConfirmPassword)
+                throw new InvalidResetPassword("Reset password not matched.");
+
+            var principal = tokenService.GetPrincipalFromToken(dto.ResetToken);
+            if (principal == null || principal.FindFirst("Purpose")?.Value != "PasswordReset")
+                throw new InvalidResetPassword("Invalid or expired token.");
+
+            var userIdStr = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdStr) || !Guid.TryParse(userIdStr, out var userId))
+                throw new InvalidResetPassword("Invalid token payload.");
+
+            await _unitOfWork.BeginTransactionAsync();
+
+            var user = await _unitOfWork.GetRepository<IUserRepository>().GetByIdAsync(userId);
+            if (user == null)
+                throw new UserNotFoundException();
+
+            user.ChangePassword(dto.NewPassword);
+            await _unitOfWork.GetRepository<IUserRepository>().Update(user.UserId, user);
+            await _unitOfWork.CommitAsync();
+
         }
     }
 }

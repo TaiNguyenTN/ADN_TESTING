@@ -62,11 +62,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FullStack\\Project\\ADN_TESTING\\IAmService\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\FullStack\\Project\\ADN_TESTING\\iam-service\\IAmService\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\FullStack\\Project\\ADN_TESTING\\IAmService\\Domain\\Domain.csproj",
+      "projectPath": "C:\\FullStack\\Project\\ADN_TESTING\\iam-service\\IAmService\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\FullStack\\Project\\ADN_TESTING\\IAmService\\Domain\\obj\\",
+      "outputPath": "C:\\FullStack\\Project\\ADN_TESTING\\iam-service\\IAmService\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

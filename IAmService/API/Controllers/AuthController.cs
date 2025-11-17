@@ -46,6 +46,22 @@ namespace API.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
+        [HttpPost("fotgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDTO request)
+        {
+            await _authService.ForgotPasswordAsync(request);
+            return Ok(new { message = "A password reset link has been sent" });
+        }
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO request)
+        {
+            await _authService.ResetPasswordAsync(request);
+            return Ok(new { message = "Password has been reset successfully" });
+        }
+
 
     }
 }

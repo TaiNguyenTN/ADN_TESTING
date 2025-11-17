@@ -66,6 +66,11 @@ namespace Domain.Aggregate
 
 
         #region Methods
+
+        public void ChangePassword(string newPassword)
+        {
+            Password = Password.FromPlain(newPassword);
+        }
         public static void ValidateUserId(Guid id)
         {
             if (id == Guid.Empty)

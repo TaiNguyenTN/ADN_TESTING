@@ -11,9 +11,22 @@ namespace Application.ApplicationExceptions
         protected ApplicationExceptionBase(string message) : base(message) { }
     }
 
-    public class UserNotFoundException : ApplicationExceptionBase
+    public class InvalidResetPassword : ApplicationExceptionBase
     {
-        public UserNotFoundException(string message) : base(message) { }
+        public InvalidResetPassword(string message) : base(message)
+        {
+        }
+    }
+
+    public class UserEmailNotFound : ApplicationExceptionBase
+    {
+        public UserEmailNotFound(string email)
+            : base($"User with email '{email}' not found.") { }
+    }
+
+    public class UserNotFoundException : ApplicationExceptionBase
+    {   
+        public UserNotFoundException() : base($"User was not found.") { }
     }
 
     public class InvalidPasswordException : ApplicationExceptionBase

@@ -132,6 +132,8 @@ builder.Services.AddAuthorization();
 //DI
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 
 //DI for repositories and unit of work

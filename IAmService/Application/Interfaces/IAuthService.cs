@@ -12,5 +12,7 @@ namespace Application.Interfaces
     {
         Task<TokenDTO> Login(LoginDTO dto);
         Task<string> RefreshAccessTokenAsync(RefreshTokenDTO dto);
+        Task ForgotPasswordAsync(ForgotPasswordDTO dto);
+        Task ResetPasswordAsync(ResetPasswordDTO dto);
     }
 }
