@@ -1,0 +1,19 @@
+{
+    "Routes": [
+        {
+            "UpstreamPathTemplate": "/iam/auth/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "DownstreamPathTemplate": "/api/Auth/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "iamservice",
+                    "Port": 5000
+                }
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://apigateway:8080"
+    }
+}

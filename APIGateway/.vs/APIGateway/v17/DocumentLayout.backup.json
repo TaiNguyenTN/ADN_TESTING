@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|c:\\fullstack\\project\\adn_testing\\apigateway\\apigateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|c:\\fullstack\\project\\adn_testing\\apigateway\\apigateway\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|c:\\fullstack\\project\\adn_testing\\apigateway\\apigateway\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{679EDB48-CE14-417C-8754-84603A6BC365}|APIGateway\\APIGateway.csproj|solutionrelative:apigateway\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\.env",
+              "RelativeDocumentMoniker": "APIGateway\\.env",
+              "ToolTip": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\.env",
+              "RelativeToolTip": "APIGateway\\.env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-17T01:09:24.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ocelot.json",
+              "DocumentMoniker": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\ocelot.json",
+              "RelativeDocumentMoniker": "APIGateway\\ocelot.json",
+              "ToolTip": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\ocelot.json",
+              "RelativeToolTip": "APIGateway\\ocelot.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-15T10:40:23.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\Dockerfile",
+              "RelativeDocumentMoniker": "APIGateway\\Dockerfile",
+              "ToolTip": "C:\\FullStack\\Project\\ADN_TESTING\\APIGateway\\APIGateway\\Dockerfile",
+              "RelativeToolTip": "APIGateway\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-15T08:54:40.777Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
