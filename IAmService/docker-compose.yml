@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  apigateway:
+    image: apigateway
+    container_name: apigateway_adntesting
+    env_file:
+      - API/.env
+    ports:
+      - "8000:8080"   #Host 8000 -> Container 8080(HTTP)
+      - "8001:8081"   #Host 8001 -> Container 8081(HTTPS)
+    environment:
+        ASPNETCORE_ENVIRONMENT: "Development"
+        ASPNETCORE_URLS: "http://0.0.0.0:8080"
+    networks:
+      - adntesting_network
+
+  iamservice:
+    image: iamservice_adntesting_image
+    container_name: iamservice_adntesting_container
+    build: 
+      context: .
+      dockerfile: API/Dockerfile
+    ports:
+      - "5000:5000"   #Host 5000 -> Container 5000(HTTP)
+    env_file:
+      - API/.env
+    depends_on:
+      - adntesting_db
+    networks:
+      - adntesting_network
+      
+
+  #===========================
+  # Database container
+  #===========================
+
+  adntesting_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: adntesting_db
+    restart: always
+    environment:
+      SA_PASSWORD: "Adntesting123@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - adntesting_db_data:/var/opt/mssql
+    networks:
+      - adntesting_network
+networks:
+  adntesting_network:
+    external: true
+
+volumes:
+  adntesting_db_data:

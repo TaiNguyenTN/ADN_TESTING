@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hKP9hA93IlU=",
+  "success": true,
+  "projectFilePath": "C:\\FullStack\\Project\\ADN_TESTING\\IAmService\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
