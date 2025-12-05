@@ -1,0 +1,97 @@
+version: '3.9'
+
+services:
+  apigateway:
+    image: nguyenquoctai/apigateway:latest
+    container_name: apigateway_adntesting_container
+    env_file:
+      - .env
+    ports:
+      - "8000:8080"   #Host 8000 -> Container 8080(HTTP)
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+    networks:
+      - adntesting_network
+
+  iamservice:
+    image: nguyenquoctai/iamservice:latest
+    container_name: iamservice_adntesting_container
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "5002:5002"
+    env_file:
+      - .env
+    depends_on:
+      - iamservice_db
+      - rabbitmq
+    networks:
+      - adntesting_network
+
+  bookingservice:
+    image: nguyenquoctai/bookingservice:latest
+    container_name: bookingservice_adntesting_container
+    ports:
+      - "5010:5010"
+      - "5011:5011"
+    env_file:
+      - .env
+    depends_on:
+      - bookingservice_db
+      - rabbitmq
+    environment:
+      - ASPNETCORE_URLS=http://+:5001
+    networks:
+      - adntesting_network
+
+  #===========================
+  # Rabbit MQ container
+  #===========================
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"    # AMQP
+      - "15672:15672"  # Management UI
+    env_file:
+      - .env
+    networks:
+      - adntesting_network
+
+
+  #===========================
+  # Database container
+  #===========================
+  iamservice_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: iamservice_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "1433:1433"
+    volumes:
+      - iamadn_db_data:/var/opt/mssql
+    networks:
+      - adntesting_network
+
+  bookingservice_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: bookingservice_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "1434:1433"
+    volumes:
+      - bookingadn_db_data:/var/opt/mssql
+    networks:
+      - adntesting_network
+
+networks:
+  adntesting_network:
+    driver: bridge
+
+volumes:
+  iamadn_db_data:
+  bookingadn_db_data:
